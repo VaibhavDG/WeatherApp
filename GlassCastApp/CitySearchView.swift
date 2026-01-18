@@ -11,17 +11,31 @@ struct CitySearchView: View {
         NavigationStack {
             VStack {
 
-                TextField("Search city", text: $searchText)
-                    .textFieldStyle(.roundedBorder)
-                    .padding()
-                    .onChange(of: searchText) { newValue in
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.4) {
-                            // Prevent stale requests
-                            if newValue == searchText {
-                                viewModel.searchCities(query: newValue)
-                            }
+                HStack(spacing: 8) {
+                    Image(systemName: "magnifyingglass")
+                        .foregroundColor(.secondary)
+                        .font(.system(size: 16, weight: .medium))
+                    
+                    TextField("Search city", text: $searchText)
+                        .textFieldStyle(.plain)
+                        .font(.system(size: 16))
+                }
+                .padding(.horizontal, 14)
+                .padding(.vertical, 11)
+                .background {
+                          RoundedRectangle(cornerRadius: 10, style: .continuous)
+                              .fill(.thinMaterial)
+                              .shadow(color: .black.opacity(0.15), radius: 3, x: 0, y: 1)
+                      }                .padding(.horizontal)
+                .padding(.top, 8)
+                .onChange(of: searchText) { oldValue, newValue in
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.4) {
+                        // Prevent stale requests
+                        if newValue == searchText {
+                            viewModel.searchCities(query: newValue)
                         }
                     }
+                }
 
                 List(viewModel.citySuggestions) { city in
                     Button {

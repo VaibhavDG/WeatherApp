@@ -20,6 +20,11 @@ struct SettingsView: View {
                         }
                     }
                     .pickerStyle(.segmented)
+                    .padding(.vertical, 4)
+                    .background {
+                        RoundedRectangle(cornerRadius: 8, style: .continuous)
+                            .fill(.thinMaterial)
+                    }
                 }
             }
             .navigationTitle("Settings")

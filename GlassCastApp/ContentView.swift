@@ -112,7 +112,7 @@ struct ContentView: View {
                             Text(weather.condition)
                                 .foregroundColor(.white)
                             
-                            Spacer(minLength: 250)
+                            Spacer(minLength: 225)
                             
                             HStack {
                                 ForEach(weather.forecast.prefix(5)) { day in
@@ -149,9 +149,9 @@ struct ContentView: View {
                 }
             }
         
-            .onChange(of: locationManager.location) { location in
-                guard let location else { return }
-                
+            .onChange(of: locationManager.location, initial: false) { oldValue, newValue in
+                guard let location = newValue else { return }
+
                 viewModel.fetchWeather(
                     latitude: location.coordinate.latitude,
                     longitude: location.coordinate.longitude,

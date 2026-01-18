@@ -6,14 +6,18 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		9A95D7C52F1CE96F00872679 /* Supabase in Frameworks */ = {isa = PBXBuildFile; productRef = 9A95D7C42F1CE96F00872679 /* Supabase */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
 		9A7372112EFEBB5100D4FDA8 /* GlassCast.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GlassCast.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		9A7372132EFEBB5100D4FDA8 /* TestApp */ = {
+		9A7372132EFEBB5100D4FDA8 /* GlassCastApp */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			path = TestApp;
+			path = GlassCastApp;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -23,6 +27,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9A95D7C52F1CE96F00872679 /* Supabase in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -32,7 +37,8 @@
 		9A7372082EFEBB5100D4FDA8 = {
 			isa = PBXGroup;
 			children = (
-				9A7372132EFEBB5100D4FDA8 /* TestApp */,
+				9A7372132EFEBB5100D4FDA8 /* GlassCastApp */,
+				9A95D7C32F1CE96F00872679 /* Frameworks */,
 				9A7372122EFEBB5100D4FDA8 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -43,6 +49,13 @@
 				9A7372112EFEBB5100D4FDA8 /* GlassCast.app */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		9A95D7C32F1CE96F00872679 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -61,10 +74,11 @@
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
-				9A7372132EFEBB5100D4FDA8 /* TestApp */,
+				9A7372132EFEBB5100D4FDA8 /* GlassCastApp */,
 			);
 			name = GlassCast;
 			packageProductDependencies = (
+				9A95D7C42F1CE96F00872679 /* Supabase */,
 			);
 			productName = GlassCast;
 			productReference = 9A7372112EFEBB5100D4FDA8 /* GlassCast.app */;
@@ -85,7 +99,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 9A73720C2EFEBB5100D4FDA8 /* Build configuration list for PBXProject "TestApp" */;
+			buildConfigurationList = 9A73720C2EFEBB5100D4FDA8 /* Build configuration list for PBXProject "GlassCast" */;
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -94,6 +108,9 @@
 			);
 			mainGroup = 9A7372082EFEBB5100D4FDA8;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				9A95D7BF2F1CE7B100872679 /* XCRemoteSwiftPackageReference "supabase-swift" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 9A7372122EFEBB5100D4FDA8 /* Products */;
 			projectDirPath = "";
@@ -260,7 +277,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.6;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -294,7 +311,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.6;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -315,7 +332,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		9A73720C2EFEBB5100D4FDA8 /* Build configuration list for PBXProject "TestApp" */ = {
+		9A73720C2EFEBB5100D4FDA8 /* Build configuration list for PBXProject "GlassCast" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				9A73721A2EFEBB5300D4FDA8 /* Debug */,
@@ -334,6 +351,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		9A95D7BF2F1CE7B100872679 /* XCRemoteSwiftPackageReference "supabase-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/supabase/supabase-swift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.5.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		9A95D7C42F1CE96F00872679 /* Supabase */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9A95D7BF2F1CE7B100872679 /* XCRemoteSwiftPackageReference "supabase-swift" */;
+			productName = Supabase;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 9A7372092EFEBB5100D4FDA8 /* Project object */;
 }
