@@ -1,10 +1,5 @@
-//
-//  AuthView.swift
-//  GlassCast
-//
-//  Created by Amrit Raj on 18/01/26.
-//
 import SwiftUI
+
 
 struct AuthView: View {
 
@@ -18,7 +13,7 @@ struct AuthView: View {
     var body: some View {
         VStack(spacing: 24) {
 
-            Text(isLogin ? "Login" : "Create Account")
+            Text(isLogin ? "Login" : "Sign Up")
                 .font(.largeTitle.bold())
 
             VStack(spacing: 16) {
@@ -32,6 +27,7 @@ struct AuthView: View {
                     .textFieldStyle(.roundedBorder)
             }
 
+            
             if let error = authService.authError {
                 Text(error)
                     .foregroundColor(.red)
@@ -41,10 +37,14 @@ struct AuthView: View {
             Button {
                 Task {
                     isLoading = true
-                    if isLogin {
-                        await authService.signIn(email: email, password: password)
-                    } else {
-                        await authService.signUp(email: email, password: password)
+                    do {
+                        if isLogin {
+                            try await authService.signIn(email: email, password: password)
+                        } else {
+                            try await authService.signUp(email: email, password: password)
+                        }
+                    } catch {
+                        authService.authError = error.localizedDescription
                     }
                     isLoading = false
                 }
@@ -74,7 +74,4 @@ struct AuthView: View {
         .padding()
     }
 }
-#Preview {
-    AuthView()
-        .environmentObject(AuthService())
-}
+

@@ -1,65 +1,56 @@
-//
-//  AuthService.swift
-//  GlassCast
-//
-//  Created by Amrit Raj on 18/01/26.
-//
 import Foundation
 import Supabase
 import Combine
 
 @MainActor
-final class AuthService: ObservableObject {
+class AuthService: ObservableObject {
 
     @Published var isAuthenticated: Bool = false
     @Published var authError: String?
 
+    let client: SupabaseClient
+
     init() {
+        client = SupabaseClient(
+            supabaseURL: URL(string: "https://iccfajdeeucrppmuqwgf.supabase.co")!,
+            supabaseKey: "sb_publishable_hVQm3Y5yQ5RV4KV9sR3Iig_Mem034wP"
+        )
+
+        
         Task {
-            await checkSession()
+            await restoreSession()
         }
     }
 
-    func signUp(email: String, password: String) async {
+    func restoreSession() async {
         do {
-            try await supabase.auth.signUp(
-                email: email,
-                password: password
-            )
+            _ = try await client.auth.session
             isAuthenticated = true
         } catch {
-            authError = error.localizedDescription
+            isAuthenticated = false
         }
     }
 
-    func signIn(email: String, password: String) async {
-        do {
-            try await supabase.auth.signIn(
-                email: email,
-                password: password
-            )
-            isAuthenticated = true
-        } catch {
-            authError = error.localizedDescription
-        }
+
+    func signIn(email: String, password: String) async throws {
+        try await client.auth.signIn(
+            email: email,
+            password: password
+        )
+        isAuthenticated = true
+    }
+
+    func signUp(email: String, password: String) async throws {
+        try await client.auth.signUp(
+            email: email,
+            password: password
+        )
+        isAuthenticated = true
     }
 
     func signOut() async {
-        do {
-            try await supabase.auth.signOut()
-            isAuthenticated = false
-        } catch {
-            authError = error.localizedDescription
-        }
-    }
-
-    func checkSession() async {
-        do {
-            _ = try await supabase.auth.session
-            isAuthenticated = true
-        } catch {
-            isAuthenticated = false
-        }
+        try? await client.auth.signOut()
+        isAuthenticated = false
     }
 }
 
