@@ -1,9 +1,3 @@
-//
-//  WeatherView.swift
-//  TestApp
-//
-//  Created by Amrit Raj on 27/12/25.
-//
 import SwiftUI
 import Combine
 

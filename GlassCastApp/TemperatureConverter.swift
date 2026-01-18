@@ -1,9 +1,3 @@
-//
-//  TemperatureConverter.swift
-//  GlassCast
-//
-//  Created by Amrit Raj on 27/12/25.
-//
 import Foundation
 
 struct TemperatureConverter {

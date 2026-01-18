@@ -1,9 +1,4 @@
-//
-//  SettingsViewModel.swift
-//  GlassCast
-//
-//  Created by Amrit Raj on 27/12/25.
-//
+
 import Foundation
 import SwiftUI
 import Combine

@@ -1,9 +1,4 @@
-//
-//  SettingsView.swift
-//  GlassCast
-//
-//  Created by Amrit Raj on 27/12/25.
-//
+
 import SwiftUI
 
 struct SettingsView: View {

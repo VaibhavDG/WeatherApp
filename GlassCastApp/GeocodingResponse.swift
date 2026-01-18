@@ -1,9 +1,3 @@
-//
-//  GeocodingResponse.swift
-//  TestApp
-//
-//  Created by Amrit Raj on 04/01/26.
-//
 nonisolated
 
 struct GeocodingResponse: Decodable {

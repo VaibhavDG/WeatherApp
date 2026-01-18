@@ -1,10 +1,3 @@
-//
-//  LocationManager.swift
-//  TestApp
-//
-//  Created by Amrit Raj on 30/12/25
-//
-
 import Foundation
 import CoreLocation
 import Combine

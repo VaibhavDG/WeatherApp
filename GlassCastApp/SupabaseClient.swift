@@ -1,9 +1,3 @@
-//
-//  SupabaseClient.swift
-//  GlassCast
-//
-//  Created by Amrit Raj on 18/01/26.
-//
 import Foundation
 import Supabase
 
